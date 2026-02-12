@@ -1,0 +1,7 @@
+services:
+  tagger:
+    platform: linux/amd64
+    build: .
+    volumes:
+      - /Users/alessiolaiso/Downloads/Converted:/music
+      - .:/app
