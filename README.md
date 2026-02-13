@@ -8,13 +8,13 @@ The tagger uses the **MTG-Jamendo mood/theme dataset** trained on top of **Disco
 
 Music players like [Tunetuna](https://github.com/AlessioLaiso/tunetuna) can use this metadata to filter songs and create mood-based playlists.
 
-### Threshold and rebalancing
+### Thresholds and rebalancing
 
 The thresholds from the model were rebalanced to:
 - Reduce over-represented tags (e.g., love, energetic) so they're more meaningful when they appear
 - Lower thresholds for useful but rare tags (e.g., atmospheric, party, meditative)
 - Merge similar tags to keep the total count manageable (consolidated to 19 final output tags)
-- If no tag reached the respective threshold on first pass, lower thresholds are considered for a second pass. To reduce false positives, no tags will be applied to a file if the thresholds are still not reached after the second pass. Tags applied on the second pass will be shown with an asterisk in the console.
+- If no tag reaches the respective threshold on first pass, lower thresholds are considered for a second pass. To reduce false positives, no tags are applied to a file if the thresholds are still not reached after the second pass. Tags applied on the second pass will be shown with an asterisk in the console.
 
 ## Running Music Mood Tagger
 
@@ -56,25 +56,25 @@ docker compose run tagger python comprehensive_analysis.py /music
 
 19 mood tags total can be applied to the songs. The list below shows which raw tags get merged into which output tags, when applicable:
 
-**atmospheric** ← background, soundscape, space, dream
-**ballad**
-**cinematic** ← film, movie, trailer, documentary, drama, dramatic, adventure
-**dark**
-**deep**
-**emotional**
-**energetic** ← fast, action, sport, powerful
-**epic**
-**groovy** ← cool
-**happy** ← positive, upbeat, uplifting, fun
-**heavy**
-**inspiring** ← hopeful, motivational, travel
-**love** ← romantic
-**meditative**
-**melodic**
-**party**
-**relaxing** ← calm, soft, slow
-**sad** ← melancholic
-**summer**
+- **atmospheric** ← background, soundscape, space, dream
+- **ballad**
+- **cinematic** ← film, movie, trailer, documentary, drama, dramatic, adventure
+- **dark**
+- **deep**
+- **emotional**
+- **energetic** ← fast, action, sport, powerful
+- **epic**
+- **groovy** ← cool
+- **happy** ← positive, upbeat, uplifting, fun
+- **heavy**
+- **inspiring** ← hopeful, motivational, travel
+- **love** ← romantic
+- **meditative**
+- **melodic**
+- **party**
+- **relaxing** ← calm, soft, slow
+- **sad** ← melancholic
+- **summer**
 
 Some tags detected by the model are ignored, either because they are less useful to a general music library, or because the model showed poor tagging performance for them and applied them unreliably: advertising, children, christmas, commercial, corporate, funny, game, holiday, nature, retro, sexy.
 
