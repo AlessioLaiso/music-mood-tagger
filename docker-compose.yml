@@ -3,5 +3,5 @@ services:
     platform: linux/amd64
     build: .
     volumes:
-      - /Users/alessiolaiso/Downloads/Converted:/music
+      - /path/to/your/music:/music
       - .:/app
